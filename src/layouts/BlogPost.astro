@@ -1,0 +1,26 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const { post } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead
+			title={post.title.rendered}
+			description={post.yoast_head_json.og_description}
+		/>
+	</head>
+
+	<body>
+		<Header />
+		<main>
+			<article>
+				<slot />
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

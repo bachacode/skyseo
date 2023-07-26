@@ -1,0 +1,44 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+
+const yoastSEO = {
+  title: "",
+  metadesc: "",
+  metakeywords: "",
+  opengraph_title: "",
+  opengraph_description: "",
+  opengraph_image: "",
+};
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <title>{yoastSEO.title}</title>
+    <meta name="description" content={yoastSEO.metadesc} />
+    <meta name="keywords" content={yoastSEO.metakeywords} />
+    <meta property="og:title" content={yoastSEO.opengraph_title} />
+    <meta property="og:description" content={yoastSEO.opengraph_description} />
+    <meta property="og:image" content={yoastSEO.opengraph_image} />
+  </head>
+
+  <body class="bg-gray-200">
+    <header class="flex justify-between">
+      <div>LOGO</div>
+      <nav>
+        <ul>
+          <li>Lorem.</li>
+          <li>Repudiandae.</li>
+          <li>Qui.</li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
